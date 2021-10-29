@@ -13,8 +13,9 @@ $ docker run -d -p 8091:8080 -p50000:50000 --name jenkins -v $(pwd)/data:/var/je
 ```
 
 ### 1.2 基础镜像准备
-    * `colynn/jenkins-jnlp-agent:latest`：　Jenkins jnlp agent, 还有另外一种ssh agent, 但还是推荐使用`jnlp-agent`
-    * `colynn/kaniko-executor:debug`: 用于镜像制作及镜像推送 
+* `colynn/jenkins-jnlp-agent:latest`：　Jenkins jnlp agent, 还有另外一种ssh agent, 但还是推荐使用`jnlp-agent`
+* `colynn/kaniko-executor:debug`: 用于镜像制作及镜像推送 
+
 > jnlp-agnet的基础镜像是必须的，对于其他的镜像可以根据需要定义`Pod`的`template`
 
 ## 2. jenkins Auth
@@ -22,7 +23,9 @@ $ docker run -d -p 8091:8080 -p50000:50000 --name jenkins -v $(pwd)/data:/var/je
 
 ### 2.1 创建 service account
 
-> 请根据`jenkins`部署在k8s的集群内或外选择[`cluster`](https://github.com/warm-native/docs/tree/master/topic002/deploy/cluster) or [`outcluster`](https://github.com/warm-native/docs/tree/master/topic002/deploy/outcluster)
+> 请根据`jenkins`部署在k8s的集群内或外选择[`incluster`](https://github.com/warm-native/docs/tree/master/topic002/deploy/incluster) or [`outcluster`](https://github.com/warm-native/docs/tree/master/topic002/deploy/outcluster)
+
+> 注意默认授权的是`devops` 命名空间，可以根据需要修改
 
 ### 2.2 配置 Jenkins Credentials
 
@@ -33,11 +36,16 @@ $ kubectl -n devops describe secret [jenkins-admin-token-name]
 ```
 2. 创建 __Secret text__ 类型的Credentials
 
+![Image](./assets/k8s-auth.png)
+
 3. git auth
-> 根据需要进行配置，如果不需要检出代码，可以不配置
+> 根据需要进行配置，如果不需要检出代码，可以不配置。
 
 ## 3. Jenkins add kubernetes cloud
 
+![Image](./assets/k8s-cloud-setup.png)
+
+__注意__: 这里使用的`Kubernetes Namespace` 注意要和创建的 service account的 namesapce一致。
 
 ## 4. jenkins agent (提供agent的3种形式)
 1. yaml in declarative pipeline
