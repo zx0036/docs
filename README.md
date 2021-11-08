@@ -15,5 +15,6 @@
 * topic004: 基于[workflow](https://github.com/go-atomci/workflow) 实现 Jenkins自定义Pipeline  [bilibili > 视频链接](https://www.bilibili.com/video/BV1zb4y127EQ)
 * topic005: 分享基于云原生理念的 cicd平台－atomci 如何安装部署  [bilibili > 视频链接](https://www.bilibili.com/video/BV1qq4y1N7mZ/)
 * topic006: AtomCI 云原生的devops平台真得这么香吗 [bilibili > 视频链接](https://www.bilibili.com/video/BV1K3411m78Q/)
+* topic007: AtomCI 云原生的devops平台 - 5分钟全流程体验 [bilibili > 视频链接](https://www.bilibili.com/video/BV18F411a7Rk/)
 
 ### Golang Tips
