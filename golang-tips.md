@@ -2,6 +2,7 @@
 
 - [Golang Learning For Beginner](#golang-learning-for-beginner)
   - [Overview](#overview)
+  - [书籍推荐](#书籍推荐)
   - [How to try it](#how-to-try-it)
   - [How to setup develop env](#how-to-setup-develop-env)
     - [Install](#install)
