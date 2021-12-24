@@ -1,11 +1,16 @@
 # Dockerfile详解
 
-## 前置条件 - docker是什么
-* Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.
+## 前置 - docker是什么
+* Docker是一套平台即服务（PaaS）产品，它使用操作系统级的虚拟化，以容器的形式来交付软件。
 
-* Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels.
+* Docker的主要好处是它允许用户将一个应用程序及其所有的依赖关系打包成一个标准化的单元(容器)，用于软件开发、交付。与虚拟机不同，主机上所有的容器都共享一个操作系统内核的服务，从而能够更有效地利用底层系统和资源。
+  
+* 容器之间相互隔离，它们可以通过明确定义的通道相互通信。
+  
+![Image](./assets/docker-architecture.png)
 
-* Because all of the containers share the services of a single operating system kernel, they use fewer resources than virtual machines.
+
+## 前置 - docker image是什么
 
 ## Dockerfile是什么
 
