@@ -10,8 +10,6 @@
 ![Image](./assets/docker-architecture.png)
 
 
-## 前置 - docker image是什么
-
 ## Dockerfile是什么
 
 ### 概述
