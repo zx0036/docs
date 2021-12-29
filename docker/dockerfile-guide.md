@@ -6,7 +6,6 @@
     - [如何使用](#如何使用)
   - [Dockerfile结构](#dockerfile结构)
     - [示例dockerfile](#示例dockerfile)
-  - [Dockerfile构建过程解析](#dockerfile构建过程解析)
   - [Dockerfile语法格式](#dockerfile语法格式)
     - [.dockerignore file](#dockerignore-file)
   - [Dockerfile 常用命令](#dockerfile-常用命令)
@@ -20,7 +19,9 @@
   - [Dockerfile 最佳实践](#dockerfile-最佳实践)
   - [分阶段构建](#分阶段构建)
   - [自定义构建镜像](#自定义构建镜像)
-  - [docker镜像及生成方式](#docker镜像及生成方式)
+  - [docker镜像的生成方式](#docker镜像的生成方式)
+    - [概述](#概述-1)
+    - [方式](#方式)
 ## 前置 - docker是什么
 * Docker是一套平台即服务（PaaS）产品，它使用操作系统级的虚拟化，以容器的形式来交付软件。
 
@@ -89,9 +90,6 @@ CMD python /app/app.py
 2. Dockerfile 命令集合
 3. Dockerfile 运行时声明
 
-## Dockerfile构建过程解析
-    * 分阶段构建 
-
 ## Dockerfile语法格式
 
 ```Dockerfile
@@ -131,6 +129,9 @@ The ARG instruction defines a variable that users can pass at build-time to the 
 
 ## Dockerfile 最佳实践
 * https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+  
+  
+Each instruction you create in your Dockerfile results in a new image layer being created. Each layer brings additional data that are not always part of the resulting image. For example, if you add a file in one layer, but remove it in another layer later, the final image’s size will include the added file size in a form of a special "whiteout" file although you removed it. In addition, every layer contains separate metadata that add up to the overall image size as well. 
 
 
 ## 分阶段构建
@@ -141,6 +142,10 @@ The ARG instruction defines a variable that users can pass at build-time to the 
 * https://docs.docker.com/develop/develop-images/baseimages/
 
 
-## docker镜像及生成方式
+## docker镜像的生成方式
+### 概述
+
+我们所说的`Docker images` 实际上是由一个或是多个镜像层构建的。 镜像中的层是以父子关系连接在一起的，每个层代表最终容器图像的某些部分。
+### 方式
   * 通过docker容器生成镜像
   * 通过dockerfile生成镜像；
