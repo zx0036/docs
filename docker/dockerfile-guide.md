@@ -106,6 +106,26 @@ _注_: [解析器指令](https://docs.docker.com/engine/reference/builder/#parse
 
 ### .dockerignore file
 
+当使用 `ADD` or `COPY` . 时，为了避免将不需要的大文件或是敏感文件拷贝进容器，可以使用 `.dockerignore` 来忽略它们。
+
+1. 我们来看一个 `.dockerignore`的示例:
+
+```sh
+# comment
+*/temp*    # eg: /somedir/temporary.txt
+*/*/temp*  # eg: /somedir/subdir/temporary.txt
+temp?      # eg: /tempa and /tempb
+**/*.go    #
+```
+
+
+2. 更多
+
+```sh
+*.md
+!README*.md
+README-secret.md
+```
 
 ##  Dockerfile 常用命令
 
